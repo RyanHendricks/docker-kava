@@ -30,7 +30,7 @@ cat > config.toml << EOF
 
 # TCP or UNIX socket address of the ABCI application,
 # or the name of an ABCI application compiled in with the Tendermint binary
-proxy_app = "${PROXY_APP:-tcp://127.0.0.1:26658}"
+proxy_app = "tcp://127.0.0.1:${PROXY_APP_PORT:-26658}"
 
 # A custom human readable name for this node
 moniker = "${MONIKER:-moniker}"
@@ -83,7 +83,7 @@ filter_peers = ${FILTER_PEERS:-false}
 [rpc]
 
 # TCP or UNIX socket address for the RPC server to listen on
-laddr = "${RPC_LADDR:-tcp://0.0.0.0:26657}"
+laddr = "tcp://0.0.0.0:${RPC_LADDR_PORT:-26657}"
 
 
 # A list of origins a cross-domain request can be executed from
@@ -156,7 +156,7 @@ tls_key_file = "${TLS_KEY_FILE:-}"
 [p2p]
 
 # Address to listen for incoming connections
-laddr = "${P2P_LADDR:-tcp://0.0.0.0:26656}"
+laddr = "tcp://0.0.0.0:${CONNECTIONS_LADDR_PORT:-26656}"
 
 # Address to advertise to peers for them to dial
 # If empty, will use the same port as the laddr,

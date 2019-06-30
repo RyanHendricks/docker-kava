@@ -1,9 +1,9 @@
 ![https://gitlab.com/appealtoheavenllc/docker-kava](https://gitlab.com/appealtoheavenllc/docker-kava/badges/master/pipeline.svg)
 
-[![MicroBadger Version](https://images.microbadger.com/badges/version/ryanhendricks/docker-kava:v0.14.1.svg)](https://microbadger.com/images/ryanhendricks/docker-kava:v0.14.1)
+[![MicroBadger Version](https://images.microbadger.com/badges/version/ryanhendricks/docker-kava.svg)](https://microbadger.com/images/ryanhendricks/docker-kava)
 [![CircleCI (all branches)](https://img.shields.io/circleci/project/github/RyanHendricks/docker-kava/tree/master.svg?label=build&logo=circleci&logoColor=white)](https://circleci.com/gh/RyanHendricks/docker-kava/tree/master)
 [![Docker Pulls](https://img.shields.io/docker/pulls/ryanhendricks/docker-kava.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/ryanhendricks/docker-kava)
-`
+
 
 [![CircleCI](https://circleci.com/gh/RyanHendricks/docker-kava/tree/master.svg?style=svg&circle-token=5a11bae20d4346a49ee28e97d89c186f711a407c)](https://circleci.com/gh/RyanHendricks/docker-kava/tree/master)
 
