@@ -8,7 +8,7 @@ echo "setting up initial configurations"
 if [ ! -f "$KVD_HOME/config/config.toml" ];
 then
 
-  gaiad init ${MONIKER:-nonamenode} --home=${KVD_HOME:-/.kvd} --chain-id=${CHAIN_ID:-kava-testnet-1}
+  kvd init ${MONIKER:-nonamenode} --home=${KVD_HOME:-/.kvd} --chain-id=${CHAIN_ID:-kava-testnet-1}
 
   cd $KVD_HOME/config
 
