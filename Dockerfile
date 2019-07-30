@@ -1,8 +1,8 @@
-FROM golang:alpine AS build-env
+FROM golang:1.12.7-alpine AS build-env
 
 
 ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev
-ENV VERSION=master
+ENV VERSION=v0.2.0
 ENV GO111MODULE=on
 
 # Set up dependencies

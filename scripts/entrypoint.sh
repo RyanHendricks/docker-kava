@@ -8,7 +8,7 @@ echo "setting up initial configurations"
 if [ ! -f "$KVD_HOME/config/config.toml" ];
 then
 
-  kvd init ${MONIKER:-nonamenode} --home=${KVD_HOME:-/.kvd} --chain-id=${CHAIN_ID:-kava-testnet-1.1}
+  kvd init ${MONIKER:-nonamenode} --home=${KVD_HOME:-/.kvd} --chain-id=${CHAIN_ID:-kava-testnet-2000}
 
   cd $KVD_HOME/config
 
@@ -18,7 +18,7 @@ then
   if [ ! -z "$GENESIS_URL" ]; then
       wget $GENESIS_URL
   else
-      wget https://raw.githubusercontent.com/Kava-Labs/kava/master/testnet-1.1/genesis.json
+      wget https://raw.githubusercontent.com/Kava-Labs/kava-testnets/master/2000/genesis.json
   fi
 
 
