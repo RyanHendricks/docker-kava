@@ -1,8 +1,8 @@
-FROM golang:1.12.7-alpine AS build-env
+FROM golang:alpine AS build-env
 
 
 ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev
-ENV VERSION=v0.2.0
+ENV VERSION=master
 ENV GO111MODULE=on
 
 # Set up dependencies
@@ -12,7 +12,7 @@ RUN apk add --no-cache $PACKAGES
 WORKDIR /go/src/github.com/Kava-Labs/
 
 # Add source files
-RUN git clone --recursive https://www.github.com/Kava-Labs/kava
+RUN git clone --recursive https://www.github.com/Kava-Labs/kava.git
 WORKDIR /go/src/github.com/Kava-Labs/kava
 RUN git checkout $VERSION
 
@@ -49,11 +49,13 @@ WORKDIR $KVD_HOME
 EXPOSE 26656 26657 26658
 EXPOSE 1317
 
+USER root
+
 ADD ./scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod u+x /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 
-STOPSIGNAL SIGINT
+# STOPSIGNAL SIGHUP
 
 
 

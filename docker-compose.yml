@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  docker-cosmos:
+    container_name: cosmos_mainnet
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: 
+      - MONIKER=NodeName
+      - CHAIN_ID=kava-testnet-2000
+      - GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/kava-testnets/master/2000/genesis.json
+      - KVD_HOME=/.kvd
+      # - ADDR_BOOK_STRICT=false
+      # - CACHE_SIZE=10000
+    restart: always
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "26658:26658"
+      - "1317:1317" # for rest-server
+    volumes:
+      - data:/.gaiad
+volumes:
+  data:
