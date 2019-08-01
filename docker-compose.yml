@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  docker-cosmos:
-    container_name: cosmos_mainnet
+  docker-kava:
+    container_name: kava_mainnet
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,6 +20,6 @@ services:
       - "26658:26658"
       - "1317:1317" # for rest-server
     volumes:
-      - data:/.gaiad
+      - data:/.kvd
 volumes:
   data:
