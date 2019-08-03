@@ -2,7 +2,7 @@ version: '3'
 
 services:
   docker-kava:
-    container_name: kava_mainnet
+    container_name: kava-testnet
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,7 +11,7 @@ services:
       - CHAIN_ID=kava-testnet-2000
       - GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/kava-testnets/master/2000/genesis.json
       - KVD_HOME=/.kvd
-      # - ADDR_BOOK_STRICT=false
+      - SEEDS=01257db868b80e97ab2500d6dbd4e363ea66bce9@167.71.82.149:26656,029bf9259159299abbce18f80d7b962f43c02cd8@52.15.93.51:26656
       # - CACHE_SIZE=10000
     restart: always
     ports:
@@ -20,6 +20,6 @@ services:
       - "26658:26658"
       - "1317:1317" # for rest-server
     volumes:
-      - data:/.kvd
+      - kava-data:/.kvd
 volumes:
-  data:
+  kava-data:
