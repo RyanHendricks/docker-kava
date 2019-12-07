@@ -1,4 +1,4 @@
-FROM golang:1.12.7-alpine AS build-env
+FROM golang:1.13-alpine AS build-env
 
 
 ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev
@@ -17,8 +17,10 @@ WORKDIR /go/src/github.com/Kava-Labs/kava
 RUN git checkout $VERSION
 
 # Install minimum necessary dependencies, build Kava SDK, remove packages
-RUN go install -tags "ledger" ./cmd/kvd ./cmd/kvcli
-
+# RUN go install -tags "ledger" ./cmd/kvd ./cmd/kvcli
+# RUN go mod tidy
+RUN go get -u
+RUN make build
 # # Final image
 FROM alpine:edge
 
