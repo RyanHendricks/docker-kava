@@ -2,17 +2,17 @@ version: '3'
 
 services:
   docker-kava:
-    container_name: kava-testnet
+    container_name: kava
     build:
       context: .
       dockerfile: Dockerfile
     environment: 
       - MONIKER=NodeName
-      - CHAIN_ID=kava-testnet-2000
-      - GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/kava-testnets/master/2000/genesis.json
+      - CHAIN_ID=kava-2
+      - GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-2/genesis.json
       - KVD_HOME=/.kvd
-      - SEEDS=01257db868b80e97ab2500d6dbd4e363ea66bce9@167.71.82.149:26656,029bf9259159299abbce18f80d7b962f43c02cd8@52.15.93.51:26656
-      # - CACHE_SIZE=10000
+      - SEEDS=b318eca9bd19cfae08414367bf18cd35727ff9b7@13.229.196.145:50056,9c5c5947fa767ac4482212abdb05cb8cf59ad832@52.6.176.27:26656,34cb93e02d2ff70ee11631ff1e0de5ac042b4b69@34.68.32.46:26656
+      - PERSISTENT_PEERS=c6e38d744462377273926daaf36816b96596f332@34.84.191.117:26656,ab1b544f594becea2a0af3c964568431896c03a4@35.228.68.223:26656,34870045ec4bd17ac2bbad23b7c15faf0186cbd4@140.82.8.156:26656,d21edfd1bdde037a2402e2eabf064cd8cd4b49b9@54.39.182.190:26656,43a8004ece305e1d9407d00bb26958591cbf8ce2@kava01.dokia.cloud:26656,b1bcd6969f03940032f7f9c315ff3bbc1ee8cd20@185.181.103.135:26656,aafd0790e2abdffa44852eb33f9864904affbaa5@18.197.230.170:26656,43040b8c9516e2d7fc0b95f2e070a3cb37dc6c2e@35.245.180.181:26656
     restart: always
     ports:
       - "26656:26656"
