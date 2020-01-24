@@ -25,6 +25,7 @@ then
       wget https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-2/genesis.json
   fi
 
+echo "generating config.toml"
 
 cat > config.toml << EOF
 # This is a TOML config file.
@@ -182,25 +183,25 @@ addr_book_file = "${ADDR_BOOK_FILE:-config/addrbook.json}"
 
 # Set true for strict address routability rules
 # Set false for private or local networks
-addr_book_strict = ${ADDR_BOOK_STRICT:-false}
+addr_book_strict = ${ADDR_BOOK_STRICT:-true}
 
 # Maximum number of inbound peers
 max_num_inbound_peers = ${MAX_NUM_INBOUND_PEERS:-40}
 
 # Maximum number of outbound peers to connect to, excluding persistent peers
-max_num_outbound_peers = ${MAX_NUM_OUTBOUND_PEERS:-40}
+max_num_outbound_peers = ${MAX_NUM_OUTBOUND_PEERS:-10}
 
 # Time to wait before flushing messages out on the connection
 flush_throttle_timeout = "${FLUSH_THROTTLE_TIMEOUT:-100ms}"
 
 # Maximum size of a message packet payload, in bytes
-max_packet_msg_payload_size = ${MAX_PACKET_MSG_PAYLOAD_SIZE:-5000}
+max_packet_msg_payload_size = ${MAX_PACKET_MSG_PAYLOAD_SIZE:-1024}
 
 # Rate at which packets can be sent, in bytes/second
-send_rate = ${SEND_RATE:-10240000}
+send_rate = ${SEND_RATE:-5120000}
 
 # Rate at which packets can be received, in bytes/second
-recv_rate = ${RECV_RATE:-10240000}
+recv_rate = ${RECV_RATE:-5120000}
 
 # Set true to enable the peer-exchange reactor
 pex = ${PEX:-true}
@@ -215,7 +216,7 @@ seed_mode = ${SEED_MODE:-false}
 private_peer_ids = "${PRIVATE_PEER_IDS:-}"
 
 # Toggle to disable guard against peers connecting from the same ip.
-allow_duplicate_ip = ${ALLOW_DUPLICATE_IP:-true}
+allow_duplicate_ip = ${ALLOW_DUPLICATE_IP:-false}
 
 # Peer connection configuration.
 handshake_timeout = "${HANDSHAKE_TIMEOUT:-20s}"
@@ -328,6 +329,7 @@ fi
 
 if [ ! -z "$LCD_PORT" ]; then
     rm /etc/supervisor/conf.d/supervisor-kvcli.conf
+    echo "custom LCD port set -- updating supervisor config"
     cd /etc/supervisor/conf.d/
 
 cat > supervisor-kvcli.conf << EOF
@@ -338,4 +340,5 @@ EOF
 
 fi
 
+echo "configuration complete  ---- starting..."
 exec supervisord --nodaemon --configuration /etc/supervisor/supervisord.conf
