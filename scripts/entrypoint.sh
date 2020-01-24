@@ -54,6 +54,8 @@ db_dir = "${DB_DIR:-data}"
 # Output level for logging, including package level options
 log_level = "${LOG_LEVEL:-main:info,state:info,*:error}"
 
+log_format = "${LOG_FORMAT:-plain}"
+
 ##### additional base config options #####
 
 # Path to the JSON file containing the initial validator set and other meta data
@@ -144,6 +146,13 @@ max_subscriptions_per_client = ${MAX_SUBSCRIPTION_PER_CLIENT:-5}
 # global HTTP write timeout, which applies to all connections and endpoints.
 # See https://github.com/tendermint/tendermint/issues/3435
 timeout_broadcast_tx_commit = "${TIMEOUT_BROADCAST_TX_COMMIT:-10s}"
+
+
+# Maximum size of request body, in bytes
+max_body_bytes = ${MAX_SIZE_REQUEST_BODY:-1000000}
+
+# Maximum size of request header, in bytes
+max_header_bytes = ${MAX_SIZE_REQUEST_HEADER:-1048576}
 
 # The name of a file containing certificate that is used to create the HTTPS server.
 # If the certificate is signed by a certificate authority,
@@ -240,6 +249,20 @@ max_txs_bytes = ${MAX_TXS_BYTES:-1073741824}
 # size of the cache (used to filter transactions we saw earlier)
 cache_size = ${CACHE_SIZE:-10000}
 
+
+# Maximum size of a single transaction.
+max_tx_bytes = ${MAX_TX_BYTES:-1048576}
+
+##### fast sync configuration options #####
+[fastsync]
+
+# Fast Sync version to use:
+#   1) "v0" (default) - the legacy fast sync implementation
+#   2) "v1" - refactor of v0 version for better testability
+version = "${FAST_SYNC_VERSION:-v0}"
+
+
+
 ##### consensus configuration options #####
 [consensus]
 
@@ -273,7 +296,7 @@ peer_query_maj23_sleep_duration = "${PEER_QUERY_MAJ23_SLEEP_DURATION:-2s}"
 # Options:
 #   1) "null" (default)
 #   2) "kv" - the simplest possible indexer, backed by key-value storage (defaults to levelDB; see DBBackend).
-indexer = "${INDEXER:-kv}"
+indexer = "${INDEXER_SELECTION:-kv}"
 
 # Comma-separated list of tags to index (by default the only tag is "tx.hash")
 #
