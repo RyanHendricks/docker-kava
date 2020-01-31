@@ -319,10 +319,10 @@ EOF
 
 cd $KVD_HOME
 
-  # if [ "$BOOTSTRAP" == "TRUE" ]; then
-  #   wget https://storage.googleapis.com/a2h-node-bootstraps/$CHAIN_ID.tar.lz4
-  #   lz4 -d -v --rm $CHAIN_ID.tar.lz4 | tar xf -
-  # fi
+  if [ "$BOOTSTRAP" == "TRUE" ]; then
+    wget http://quicksync.chainlayer.io/kava/kava-2.20200128.0505.tar.lz4
+    lz4 -d -v --rm kava-2.20200128.0505.tar.lz4 | tar xf -
+  fi
 
 fi
 
