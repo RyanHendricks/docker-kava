@@ -3,7 +3,7 @@ jobs:
   build:
     environment:
       IMAGE_NAME: ryanhendricks/docker-kava
-      VERSION: master
+      VERSION: v0.3.4
     docker:
       - image: circleci/buildpack-deps:stretch
     steps:
