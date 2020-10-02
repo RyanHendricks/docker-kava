@@ -1,12 +1,12 @@
 FROM golang:1.13-alpine AS build-env
 
 
-ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev
-ENV VERSION=v0.3.4
+ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev jq
+ENV VERSION=v0.10.0
 ENV GO111MODULE=on
 
 # Set up dependencies
-RUN apk add --no-cache $PACKAGES
+RUN apk add --update --no-cache $PACKAGES
 
 # Set working directory for the build
 WORKDIR /go/src/github.com/Kava-Labs/
@@ -16,6 +16,7 @@ RUN git clone --recursive https://www.github.com/Kava-Labs/kava.git
 WORKDIR /go/src/github.com/Kava-Labs/kava
 RUN git checkout $VERSION
 
+RUN go mod download
 # Install minimum necessary dependencies and build binaries
 RUN make install
 
