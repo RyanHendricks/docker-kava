@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/RyanHendricks/docker-kava/tree/HEAD)
+## [v0.10.0-kava-3](https://github.com/RyanHendricks/docker-kava/tree/v0.10.0-kava-3) (2020-10-02)
 
-[Full Changelog](https://github.com/RyanHendricks/docker-kava/compare/v1.0.0-rc1...HEAD)
+[Full Changelog](https://github.com/RyanHendricks/docker-kava/compare/v1.0.0-rc1...v0.10.0-kava-3)
 
 **Merged pull requests:**
 
