@@ -52,9 +52,9 @@ You can set ENV variables either in a docker-compose file or in the docker run c
 - MONIKER
   - defaults to "nonamenode"
 - CHAIN_ID
-  - defaults to kava-3
+  - defaults to kava-4
 - GENESIS_URL
-  - defaults to kava-3 github [genesis file url](https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-3/genesis.json)
+  - defaults to kava-3 github [genesis file url](https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-4/genesis.json)
 
 Some examples:
 
@@ -63,7 +63,7 @@ MONIKER=nonamenode
 CHAIN_ID=kava-3
 BOOTSTRAP=TRUE
 PROMETHEUS=true
-GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-3/genesis.json
+GENESIS_URL=https://raw.githubusercontent.com/Kava-Labs/launch/master/kava-4/genesis.json
 KVD_HOME=/.kvd
 ```
 
