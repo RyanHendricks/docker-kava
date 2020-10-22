@@ -2,7 +2,7 @@ FROM golang:1.13-alpine AS build-env
 
 
 ENV PACKAGES curl make git libc-dev bash gcc linux-headers eudev-dev jq
-ENV VERSION=v0.10.0
+ENV VERSION=v0.11.0
 ENV GO111MODULE=on
 
 # Set up dependencies
