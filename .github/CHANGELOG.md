@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.11.0-kava-4](https://github.com/RyanHendricks/docker-kava/tree/v0.11.0-kava-4) (2020-10-22)
+
+[Full Changelog](https://github.com/RyanHendricks/docker-kava/compare/v0.10.0-kava-3...v0.11.0-kava-4)
+
+**Updates:**
+
+- Kava-4 upgrade [\#2](https://github.com/RyanHendricks/docker-kava/pull/2)
+
 ## [v0.10.0-kava-3](https://github.com/RyanHendricks/docker-kava/tree/v0.10.0-kava-3) (2020-10-02)
 
 [Full Changelog](https://github.com/RyanHendricks/docker-kava/compare/v1.0.0-rc1...v0.10.0-kava-3)
